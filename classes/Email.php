@@ -36,7 +36,7 @@ class Email{
         $contenido .= "<p><strong>Hola ". $this->nombre . "</strong> Has creado tu cuenta en AppSalon,
             solo debes confirmarla presionando en el siguiente enlace
         </p>";
-        $contenido .= "<p>Presiona aquí: <a href='". $_ENV['APP_URL'] ."/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='https://barberiadev.alwaysdata.net/confirmar-cuenta?token=". $this->token ."'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
@@ -55,8 +55,8 @@ class Email{
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail -> addAddress('claudio91soto@gmail.com');
+        $mail->setFrom('silakwebdemo@gmail.com');
+        $mail -> addAddress($this->email);
         $mail->Subject = 'Reestablee tu Password';
         //Set HTML
         $mail -> isHTML(TRUE);
@@ -65,7 +65,7 @@ class Email{
         $contenido .= "<p><strong>Hola ". $this->nombre . "</strong> Has solicitado reestablecer tu password
             presiona en el siguiente enlace para hacerlo
         </p>";
-        $contenido .= "<p>Presiona aquí: <a href='". $_ENV['APP_URL'] ."/recuperar?token=". $this->token ."'>Recuperar Password</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='https://barberiadev.alwaysdata.net/recuperar?token=". $this->token ."'>Recuperar Password</a></p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
