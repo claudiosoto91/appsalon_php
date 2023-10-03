@@ -109,9 +109,9 @@ function paginaSiguiente(){
 async function consultarAPI (){
     try {
         //Se puede dejar asi
-        // const url = `${location.origin}/api/servicios`;
+        const url = `${location.origin}/api/servicios`;
         //Se usa de esta manera si se aloja en el mismo dominio
-        const url = '/api/servicios'; 
+        // const url = '/api/servicios'; 
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios);
@@ -306,7 +306,7 @@ async function reservarCita(){
     //console..log([...datos]); Te permite ver el array datos y que tenga todo el contenido
 
     try{
-        const url = '/api/citas';
+        const url = `${location.origin}/api/citas`;
         const respuestas = await fetch(url, {
             method: 'POST',
             body: datos
